@@ -1,0 +1,55 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional if you're sharing the project)
+.vscode/
+
+# Node modules if using tools like npm in the future
+node_modules/
+
+# Logs and debug files
+*.log
+
+# Build output (if using SSGs or build tools later)
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Compiled CSS/JS (optional — keep if using preprocessors)
+*.min.js
+*.min.css
+
+# OS-generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Environment variables (if added later)
+.env
+.env.*
+
+# Visual Studio-specific folders
+.vs/
+*.user
+*.suo
+
+# Backup files
+*.bak
+*.old
+
+# JetBrains IDE files (if applicable)
+.idea/
+
+.dll
+.exe
+.pdb
+.app
+.lib
+.obj
+.so
+.log
