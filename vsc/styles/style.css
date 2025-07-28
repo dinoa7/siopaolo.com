@@ -32,7 +32,7 @@ body {
 .navbar {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    align-items: left;
     background: #000;
     padding: 1rem 2rem;
     gap: 1rem;
