@@ -3,16 +3,15 @@ class SpecialHeader extends HTMLElement{
         this.innerHTML = `
             <header>
                 <nav class="navbar">
-                    <h1 class="logo">siopaolo</h1>
-
                     <div class="nav-button-row">
-                        <a href="index.html" class="nav-button">Home</a>
-                        <a href="videos.html" class="nav-button">Videos</a>
-                        <a href="merch.html" class="nav-button">Merch</a>
-                        <a href="fans.html" class="nav-button">Fans</a>
-                        <a href="contact.html" class="nav-button">Contact</a>
+                        <a href="index.html" class="logo-button">siopaolo</a>
+                        <div class="nav-links-group">
+                            <a href="videos.html" class="nav-button">Videos</a>
+                            <a href="merch.html" class="nav-button">Merch</a>
+                            <a href="fans.html" class="nav-button">Fans</a>
+                            <a href="contact.html" class="nav-button">Contact</a>
+                        </div>
                     </div>
-
                     <div class="icon-button-row">
                         <a href="https://www.instagram.com/siopaolomusic"><img class="icon-button" src="assets/images/instagram.png" alt="Instagram"></a>
                         <a href="https://discord.gg/xBKXhVSkaK"><img class="icon-button" src="assets/images/discord.png" alt="Discord"></a>

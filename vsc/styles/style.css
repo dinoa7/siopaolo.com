@@ -1,4 +1,4 @@
-/* Reset & base styles */
+/*Reset & base styles*/
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -15,81 +15,81 @@ html, body {
 
 
 main, .video-page, .contact-page {
-    flex: 1; /* makes the content stretch to fill space */
+    flex: 1;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    /*background: linear-gradient(to bottom, #000, #111);  Shared gradient */
-    background: #000;
+    background: linear-gradient(45deg, black, grey);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     color: #fff;
     line-height: 1.6;
     min-height: 100vh;
     flex: 1;
 }
-
-
+/*Header*/
 .navbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: left;
+    display: flex;               /* Enables flexbox */
+    justify-content: space-between; /* Push rows apart (optional) */
+    align-items: center;         /* Align items vertically */
+    flex-wrap: wrap;             /* Allow wrapping on smaller screens */
     background: #000;
     padding: 1rem 2rem;
     gap: 1rem;
 }
-
-
-/* Logo */
-.logo {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #fff;
-}
-.logo-link {
-    text-decoration: none;
-}
-.logo-link:visited {
-    color: inherit;
-}
-
-
-
 .nav-button-row {
     display: flex;
+    align-items: center;
     gap: 1rem;
+}
+.logo-button {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    width: 15rem;
+    height: 4rem;
+    color: #fff;
+    font-weight: 700;
+    font-size: 3rem;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.logo-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 6px #fff;
+    color: #ccc;
+}
+.nav-links-group {
+    display: flex;
+    gap: 1rem;
 }
 .nav-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 64px; /* Black button */
-    color: #fff; /* White text */
+    width: 8rem;
+    height: 3rem;
+    color: #fff;
     font-weight: 700;
     font-size: 1.8rem;
     text-decoration: none;
     border-radius: 10px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-
-    .nav-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 6px #fff;
-        color: #ccc;
-    }
-
+.nav-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 6px #fff;
+    color: #ccc;
+}
 
 .icon-button-row {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
-    justify-content: flex-end;
-    flex-wrap: wrap;
 }
-
-/* White rounded square background */
 .icon-button {
     width: 25px;
     height: 25px;
@@ -99,47 +99,39 @@ body {
     justify-content: center;
     background-color: #fff;
     border-radius: 3px;
-    overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-    .icon-button img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-
-    .icon-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 5px #fff;
-    }
-
-
-/* Hero section */
-.hero {
-    text-align: center;
-    padding: 4rem 2rem;
+.icon-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-
-
-    .hero h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-    }
-
-/* Footer */
+.icon-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px #fff;
+}
+/*Footer*/
 footer {
     text-align: center;
     padding: 1rem;
     margin-top: auto;
     font-size: 0.9rem;
     background: #000;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
 .video-page {
@@ -153,25 +145,25 @@ footer {
     font-size: 1.2rem;
 }
 
-    .channel-link a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        border: 2px solid #fff;
-        padding: 0.6rem 1.2rem;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-    }
+.channel-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
 
-        .channel-link a:hover {
-            transform: scale(1.1);
-            background-color: #000; /* Stay black */
-            color: #fff; /* Stay white */
-            box-shadow: 0 0 6px #fff; /* Glow effect */
-        }
+.channel-link a:hover {
+    transform: scale(1.1);
+    background-color: #000; /* Stay black */
+    color: #fff; /* Stay white */
+    box-shadow: 0 0 6px #fff; /* Glow effect */
+}
 
 
 .youtube-large-icon {
@@ -194,27 +186,4 @@ footer {
 
 .youtube-frame:last-of-type {
     margin-bottom: 0.5rem;
-}
-
-
-
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .icon-button-row {
-        justify-content: center;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
 }
