@@ -1,43 +1,41 @@
-/*Reset & base styles*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html, body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-
-main, .video-page, .contact-page {
-    flex: 1;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, black, grey);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #fff;
-    line-height: 1.6;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.home-page{
+   background: url("/assets/images/img2.jpg") no-repeat center center;
+   background-size: cover;
+   background-color: black;
+}
+.video-page{
+   background: url("/assets/images/index.png") no-repeat center center;
+   background-size: cover;
+   background-color: black;
+   text-align: center;
+}
+.main-content{
     flex: 1;
 }
-/*Header*/
+
 .navbar {
-    display: flex;               /* Enables flexbox */
-    justify-content: space-between; /* Push rows apart (optional) */
-    align-items: center;         /* Align items vertically */
-    flex-wrap: wrap;             /* Allow wrapping on smaller screens */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap;
     background: #000;
     padding: 1rem 2rem;
     gap: 1rem;
+    margin-bottom: 2.2rem;
 }
 .nav-button-row {
     display: flex;
@@ -111,7 +109,6 @@ body {
     transform: scale(1.1);
     box-shadow: 0 0 5px #fff;
 }
-/*Footer*/
 footer {
     text-align: center;
     padding: 1rem;
@@ -134,18 +131,13 @@ footer {
     margin-bottom: 2rem;
 }
 
-.video-page {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: #fff;
-}
 
 .channel-link {
     margin-bottom: 2rem;
     font-size: 1.2rem;
 }
 
-.channel-link a {
+.youtube-link {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -158,11 +150,11 @@ footer {
     transition: all 0.3s ease;
 }
 
-.channel-link a:hover {
+.youtube-link:hover {
     transform: scale(1.1);
-    background-color: #000; /* Stay black */
-    color: #fff; /* Stay white */
-    box-shadow: 0 0 6px #fff; /* Glow effect */
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 0 6px #fff;
 }
 
 
@@ -178,7 +170,7 @@ footer {
     overflow: hidden;
     box-shadow: 0 0 10px #fff3;
     width: 100%;
-    margin-inline: auto; /* Horizontally centers the element */
+    margin-inline: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: block;
