@@ -13,14 +13,12 @@ body {
 }
 
 .home-page{
-   background: url("/assets/images/img2.jpg") no-repeat center center;
+   background: url("../assets/images/img2.JPG") no-repeat center center;
    background-size: cover;
-   background-color: black;
 }
 .video-page{
-   background: url("/assets/images/index.png") no-repeat center center;
+   background: url("../assets/images/index.png") no-repeat center center;
    background-size: cover;
-   background-color: black;
    text-align: center;
 }
 .main-content{
@@ -40,7 +38,7 @@ body {
 .nav-button-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .logo-button {
     display: inline-flex;
@@ -52,7 +50,7 @@ body {
     font-weight: 700;
     font-size: 3rem;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 1px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .logo-button:hover {
@@ -62,19 +60,18 @@ body {
 }
 .nav-links-group {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .nav-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 8rem;
-    height: 3rem;
+    padding: 10px;
     color: #fff;
     font-weight: 700;
     font-size: 1.8rem;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 1px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .nav-button:hover {
@@ -86,18 +83,19 @@ body {
 .icon-button-row {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 .icon-button {
-    width: 25px;
-    height: 25px;
-    padding: 1px;
-    display: inline-flex;
+    width: 30px;              /* consistent width */
+    height: 30px;             /* force consistent height too */
+    display: flex;            /* center contents */
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: 2px;
+    padding: 1px;             /* small, even padding */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;   /* ensures padding doesn’t mess with size */
 }
 .icon-button img {
     width: 100%;
@@ -111,10 +109,13 @@ body {
 }
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 10px 15px 10px 15px;
     margin-top: auto;
     font-size: 0.9rem;
     background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .hero {
