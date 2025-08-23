@@ -14,7 +14,7 @@ class SpecialHeader extends HTMLElement{
                             <a href="https://www.youtube.com/@siopaolomusic" class="nav-button">
                                 <img src="assets/images/tabs/videos.png" alt = "VIDEOS">
                             </a>
-                            <a href="shop.html" class="nav-button">
+                            <a href="https://shop.siopaolo.com" class="nav-button">
                                 <img src="assets/images/tabs/shop.png" alt = "SHOP">
                             </a>
                             <a href="about.html" class="nav-button">
