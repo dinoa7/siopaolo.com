@@ -1,137 +1,208 @@
-.home-page, .video-page, .about-page { 
-    flex: 1;
-}
-.home-page{
-  background: url("../assets/images/backgrounds/home.png") no-repeat center center;
-  background-size: cover;
-}
-
 .scrolls {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.scroll-label {
-  height: 60px;
-  width: auto;
-  display: block;
-  margin: 0
+.label-headers{
+  margin: 1.5rem auto 0 auto;    /* centers horizontally */
+  padding: 0.75rem 1.5rem;
+  background: #000;
+  color: #fff;
+  font-size: 3rem;
+  border-radius: 0px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .music-scroll,
 .merch-scroll {
-  margin-top: 6rem;
-  flex: 1;                  /* equal halves */
-  display: flex;            /* make each half a flex container */
-  justify-content: center;  /* center content horizontally */
-  align-items: center;      /* center content vertically */
-  /* remove align-items if you only want horizontal centering */
-}
-
-.music-scroll {
   flex: 1;
   display: flex;
-  flex-direction: column;   /* stack children vertically */
-  align-items: center;      /* center them horizontally */
-  justify-content: flex-start; /* keep label at top, carousel follows */
-  gap: 1rem;                /* space between label and carousel */
+  flex-direction: column;
+  align-items: center;      /* horizontal centering */
+  justify-content: flex-start; /* label at top, content follows */
+  gap: 1rem;                /* space between label and content */
+  margin: 0;            /* remove the big manual push */
 }
 
-.merch-scroll {
-  flex: 1;
-  display: flex;
-  flex-direction: column;   /* same stacking for consistency */
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
+.merch-scroll{
+  background: url("../assets/images/backgrounds/home.png") no-repeat center center;
+  background-size: cover;
+  min-height: 75vh;
+  padding-top: 10rem;
 }
 
-.carousel {
-  --gap: 0.75rem;                 /* spacing between cards */
-  --card: clamp(140px, 28vw, 360px); /* responsive card width */
-  max-width: calc(3 * var(--card) + 2 * var(--gap));
-  width: 100%;
-  margin-inline: auto;
-  position: relative;
+.music-scroll{
+    background: url("../assets/images/backgrounds/about.jpg") no-repeat center center;
+    padding-bottom: 3rem;
+    min-height: 25vh;
 }
-.viewport {
-  overflow: visible;
-  padding-block: 1rem;
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, var(--card));
+  justify-content: center;
+  gap: 1rem;                            /* space between boxes */
+  margin-top: 2rem;                     /* space above the grid */
+  width: 100%;                          /* stretch to parent width */
+  max-width: 1200px;                     /* optional: cap width */
 }
-.track {
-  position: relative;
-  z-index: 1;
+
+.merch-item {
+  background: rgba(0,0,0,0.7);                 /* placeholder color */
+  border: 4px solid #000;      /* no extra surprise width */
+  width: var(--card);
+  aspect-ratio: 1 / 1;        /* same square ratio */
+  overflow: hidden;
+  border: 4px solid #000;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--gap);
-  will-change: transform;
-  transition: transform 0ms;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
-.card {
+
+.merch-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.merch-item:hover img {
+  transform: scale(1.1);   /* zoom in by 10% */
+}
+
+.img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.merch-item:hover .img-hover {
+  opacity: 1;
+}
+
+:root{
+  --gap: 0.75rem;
+  --card: clamp(180px, 32vw, 320px);
+  --nav: 48px;
+}
+
+/* Make widths include borders so 3 cards really fit */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* The carousel box is exactly 3 cards wide, centered on the page */
+.carousel{
   position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  width: var(--card);
-  border-radius: 0px;
-  transform-origin: center;
-  border: 8px solid black;
-  transition: opacity 260ms ease, transform 260ms ease;
+  width: calc(3 * var(--card) + 2 * var(--gap));
+  margin: 0 auto;              /* centers the whole thing */
 }
-.card a, .card img {
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--nav);
+  height: var(--nav);
+  border: none;
+  border-radius: 50%;
+  background: #1a1a1a;
+  opacity: 0.7;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 200ms ease, opacity 200ms ease; /* add smooth transition */
+}
+
+/* Hover effect */
+.carousel-button:hover {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+}
+
+.carousel-button.prev{ left: -56px; }
+.carousel-button.next{ right: -56px; }
+.carousel-button img{ width: 18px; height: auto; }
+
+.viewport{
+  overflow: hidden;            /* keep the slide clean */
+  padding-block: 1rem;
+}
+
+/* UL reset so it truly centers and doesn’t shift right */
+.track{
+  list-style: none;            /* no bullets */
+  margin: 0;                   /* kill default margins */
+  padding: 0;                  /* kill default left padding */
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  justify-content: flex-start; /* start at left edge of viewport */
+  transition: transform 420ms ease;
+}
+
+/* Cards: width includes border thanks to border-box above */
+.slide{
+  flex: 0 0 auto;
+  width: var(--card);          /* border is included now */
+  aspect-ratio: 1 / 1;
+  border: 4px solid #000;      /* no extra surprise width */
+  overflow: hidden;
+}
+
+.slide img{
   display: block;
   width: 100%;
   height: 100%;
-}
-.card img { object-fit: cover; }
-
-.is-center { 
-    transform: scale(1); 
-    z-index: 3; 
-    opacity: 1;
-}
-.is-prev,
-.is-next  { 
-    transform: scale(0.9);
-    z-index: 2; 
-    opacity: 1; 
-    transition: opacity 260ms ease, transform 260ms ease;
+  object-fit: cover;
 }
 
-.center-exit  { opacity: 0; transform: scale(.95); }
-.center-enter { opacity: 0; transform: scale(.95); }
+/* Make the anchor fill the card box */
+.slide .nav-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+}
 
-.carousel .nav {
-  position: absolute;
-  top: 50%;
-  translate: 0 -50%;
-  z-index: 10;
-  border: none;
-  background: rgba(0,0,0,.8);
+/* Make the image fill the anchor/card box in ALL states */
+.slide .nav-button img,
+.slide .nav-button:hover img,
+.slide .nav-button:focus img {
+  display: block;
+  width: 100% !important;    /* override any global width/height rules */
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* Optional: pull arrows in a bit on small screens */
+@media (max-width: 520px){
+  .carousel-button.prev{ left: -36px; }
+  .carousel-button.next{ right: -36px; }
+}
+
+.view-all {
+  margin: 1.5rem auto 0 auto;    /* centers horizontally */
+  padding: 0.75rem 1.5rem;
+  background: #000;
   color: #fff;
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: background 150ms ease, transform 150ms ease;
-  user-select: none;
-}
-.carousel .nav:hover { background: rgba(0,0,0,.55); transform: scale(1.05); }
-.carousel .prev { left: -25px; }
-.carousel .next { right: -25px; }
-
-@media (max-width: 800px) {
-  .carousel .prev { left: 4px; }
-  .carousel .next { right: 4px; }
+  font-size: 1rem;
+  border-radius: 0px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;         /* so it shrinks to content */
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-
-@media (max-width: 800px) {
-  .prev { left: 4px; }
-  .next { right: 4px; }
+.view-all:hover {
+  background: #222;
+  transform: scale(1.05);
 }
-

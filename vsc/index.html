@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>siopaolo - HOME</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/homeStyle.css">
     <script src="homeScript.js" defer></script>
@@ -13,20 +16,70 @@
     <special-header></special-header>
     <main class="home-page">
         <div class="scrolls">
-            <div class="music-scroll">
-                <img class="scroll-label" src="assets/images/text/music.png" alt = "MUSIC">
-                    <section class="panel panel-left">
-                        <div class="carousel" id="coverCarousel">
-                            <button class="nav prev" aria-label="Previous">‹</button>
-                            <div class="viewport">
-                                <div class="track"><!-- cards injected by JS --></div>
-                            </div>
-                            <button class="nav next" aria-label="Next">›</button>
-                        </div>
-                </section>
-            </div>
             <div class="merch-scroll">
-                <img class="scroll-label" src="assets/images/text/merch.png" alt = "MERCH">
+                <p class="label-headers">MERCH</p>
+                <div class="merch-grid">
+                <a href="https://shop.siopaolo.com/products/siopaolo-rustic-hat" class="merch-item">
+                    <img src="assets/images/merch/hatBlack.png" alt="Black Rustic Hat">
+                </a>
+                <a href="https://shop.siopaolo.com/products/siopaolo-rustic-hat" class="merch-item">
+                    <img src="assets/images/merch/hatBrown.png" alt="Brown Rustic Hat">
+                </a>
+                <a href="https://shop.siopaolo.com/products/siopaolo-blossom-shirt" class="merch-item black-shirt">
+                    <img src="assets/images/merch/shirtBlackBack.png" alt="Oversized Blossom Shirt" class="swap-img" data-hover="assets/images/merch/shirtBlackFront.png">
+                </a>
+                <a href="https://shop.siopaolo.com/products/siopaolo-doodle-shirt" class="merch-item">
+                    <img src="assets/images/merch/shirtBeige.png" alt="Doodle Shirt">
+                </a>
+                </div>
+                <a href="https://shop.siopaolo.com" class="view-all">SHOW MORE</a>
+            </div>
+            <div class="music-scroll">
+                <p class="label-headers">MUSIC</p>
+                <section class="carousel-section" aria-label="Music carousel">
+                <div class="carousel">
+                    <button class="carousel-button prev" aria-label="Previous">
+                    <img src="assets/images/arrows/leftArrow.png" alt="">
+                    </button>
+                    <div class="viewport">
+                    <ul class="track">
+                        <li class="slide">
+                        <a href="https://open.spotify.com/track/5m962iKdAVDEl8pPh4cXTu?si=4d47d2b6737e42be" class="nav-button">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02eabf4752aa62897d02e221b0" alt="spell it out">
+                        </a>
+                        </li>
+                        <li class="slide">
+                        <a href="https://open.spotify.com/track/2fxoRz7eUFbo5RoHSvXqQh?si=fb91b89ab180425e" class="nav-button">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02605420b22edd39a5b85b4543" alt="track 2">
+                        </a>
+                        </li>
+                        <li class="slide">
+                        <a href="https://open.spotify.com/track/4s0m05iPPuTeFlJxAQivGy?si=fdb0700ff92741e6" class="nav-button">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02fa4abe14f6462e41e9667935" alt="track 3">
+                        </a>
+                        </li>
+                        <li class="slide">
+                        <a href="https://open.spotify.com/track/2wP7xRtIT04sr7YrTDqhMc?si=b33a6013f0964eb9" class="nav-button">
+                            <img src="https://i.scdn.co/image/ab67616d00001e0259608a39364e7b427199b978" alt="track 3">
+                        </a>
+                        </li>
+                        <li class="slide">
+                        <a href="https://open.spotify.com/track/0rXY87QUdNCbvW5ocac1Bo?si=9fbf657f8c684021" class="nav-button">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02dcd6e0c0c028611ab017a16d" alt="track 3">
+                        </a>
+                        </li>
+                        <li class="slide">
+                        <a href="https://open.spotify.com/track/6u0Jd6rKIClB00FCrA78mW?si=ef4b9077588c4573" class="nav-button">
+                            <img src="https://i.scdn.co/image/ab67616d00001e028e3d111c24d12e861bfbd877" alt="track 3">
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                    <button class="carousel-button next" aria-label="Next">
+                    <img src="assets/images/arrows/rightArrow.png" alt="">
+                    </button>
+                </div>
+                </section>
             </div>
         </div>
     </main>

@@ -7,8 +7,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  color: white;
+  font-family: "DM Serif Text", serif;
+  color: black;
 }
 
 special-header,
@@ -17,14 +17,10 @@ special-footer {
   width: 100%;
 }
 
-.video-page{
-   background: url("../assets/images/index.png") no-repeat center center;
-   background-size: cover;
+.main { 
+    flex: 1;
 }
-.about-page{
-    background: url("../assets/images/backgrounds/about.jpg") no-repeat center center;
-    background-size: cover;
-}
+
 .navbar {
     display: flex;
     justify-content: space-between;
