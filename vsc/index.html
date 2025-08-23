@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>siopaolo - Home</title>
+    <title>siopaolo - HOME</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/homeStyle.css">
+    <script src="homeScript.js" defer></script>
 </head>
-<body class="home-page">
+<body>
     <special-header></special-header>
-    <main class="main-content">
-        <div class="hero">
-            <h2>Welcome to the Official Website</h2>
-            <p>New music, exclusive merch, and more.</p>
-            <p>WORK IN PROGRESS WAITING FOR MEDIA</p>
+    <main class="home-page">
+        <div class="scrolls">
+            <div class="music-scroll">
+                <img class="scroll-label" src="assets/images/text/music.png" alt = "MUSIC">
+                    <section class="panel panel-left">
+                        <div class="carousel" id="coverCarousel">
+                            <button class="nav prev" aria-label="Previous">‹</button>
+                            <div class="viewport">
+                                <div class="track"><!-- cards injected by JS --></div>
+                            </div>
+                            <button class="nav next" aria-label="Next">›</button>
+                        </div>
+                </section>
+            </div>
+            <div class="merch-scroll">
+                <img class="scroll-label" src="assets/images/text/merch.png" alt = "MERCH">
+            </div>
         </div>
     </main>
     <special-footer></special-footer>
     <script src="headerFooterManager.js"></script>
-<body>
+</body>
 </html>

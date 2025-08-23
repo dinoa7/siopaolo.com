@@ -3,7 +3,6 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
 body {
   display: flex;
   flex-direction: column;
@@ -12,90 +11,73 @@ body {
   color: white;
 }
 
-.home-page{
-   background: url("../assets/images/img2.JPG") no-repeat center center;
-   background-size: cover;
+special-header,
+special-footer {
+  display: block;
+  width: 100%;
 }
+
 .video-page{
    background: url("../assets/images/index.png") no-repeat center center;
    background-size: cover;
-   text-align: center;
 }
-.main-content{
-    flex: 1;
+.about-page{
+    background: url("../assets/images/backgrounds/about.jpg") no-repeat center center;
+    background-size: cover;
 }
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center; 
     flex-wrap: wrap;
-    background: #000;
-    padding: 1rem 2rem;
-    gap: 1rem;
-    margin-bottom: 2.2rem;
+    background: #FFF6E8;
+    padding: 0.6rem 1rem 0.6rem 1rem;
 }
 .nav-button-row {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-}
-.logo-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 15rem;
-    height: 4rem;
-    color: #fff;
-    font-weight: 700;
-    font-size: 3rem;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.logo-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 6px #fff;
-    color: #ccc;
+    justify-content: space-between;
+    width: 100%;
 }
 .nav-links-group {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.6rem;
 }
 .nav-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    color: #fff;
+    color: #000;
     font-weight: 700;
     font-size: 1.8rem;
     text-decoration: none;
-    border-radius: 1px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease;
 }
 .nav-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 6px #fff;
-    color: #ccc;
+}
+.nav-button img{
+    height: 80px;
+    width: auto;
+    display: block;
+}
+.logo-button img{
+    height: 100px;
+    width: auto;
 }
 
 .icon-button-row {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  display: flex;
+  gap: 1rem;        /* smaller than before */
+  position: relative;
 }
 .icon-button {
-    width: 30px;              /* consistent width */
-    height: 30px;             /* force consistent height too */
-    display: flex;            /* center contents */
+    width: 40px;
+    height: 40px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    border-radius: 2px;
-    padding: 1px;             /* small, even padding */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;   /* ensures padding doesn’t mess with size */
+    transition: transform 0.2s ease;
 }
 .icon-button img {
     width: 100%;
@@ -105,78 +87,16 @@ body {
 }
 .icon-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 5px #fff;
 }
 footer {
     text-align: center;
-    padding: 10px 15px 10px 15px;
-    margin-top: auto;
+    padding: 1rem;
     font-size: 0.9rem;
-    background: #000;
+    background: #FFF6E8;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
-
-.hero {
-    text-align: center;
-    padding: 4rem 2rem;
-}
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-
-.channel-link {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-}
-
-.youtube-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #fff;
-    padding: 0.6rem 1.2rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.youtube-link:hover {
-    transform: scale(1.1);
-    background-color: #000;
-    color: #fff;
-    box-shadow: 0 0 6px #fff;
-}
-
-
-.youtube-large-icon {
-    width: 32px;
-    height: 32px;
-}
-
-.youtube-frame {
-    max-width: 800px;
-    border: 2px solid #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 10px #fff3;
-    width: 100%;
-    margin-inline: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.youtube-frame:last-of-type {
-    margin-bottom: 0.5rem;
+.rights-text{
+    color: black;
 }

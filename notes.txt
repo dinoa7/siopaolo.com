@@ -4,3 +4,10 @@
 4. shows first
 5. change siopaolo to merch logo
 6. buttons all CAPS
+7. header spacing
+8. videos to more tab with all content
+9. header smaller
+10. header follows
+11. siopaolo header in center
+12. ABOUT tab
+13. remove twitch x and laylo

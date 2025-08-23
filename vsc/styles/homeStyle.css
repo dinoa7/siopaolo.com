@@ -1,0 +1,133 @@
+.home-page, .video-page, .about-page { 
+    flex: 1;
+}
+.home-page{
+  background: url("../assets/images/backgrounds/home.png") no-repeat center center;
+  background-size: cover;
+}
+
+.scrolls {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Stack on small screens */
+@media (max-width: 700px) {
+  .scrolls { flex-direction: column; }
+}
+
+.scroll-label {
+  height: 60px;
+  width: auto;
+  display: block;
+  margin: 0
+}
+
+.music-scroll,
+.merch-scroll {
+  margin-top: 6rem;
+  flex: 1;                  /* equal halves */
+  display: flex;            /* make each half a flex container */
+  justify-content: center;  /* center content horizontally */
+  align-items: center;      /* center content vertically */
+  /* remove align-items if you only want horizontal centering */
+}
+
+.music-scroll {
+  flex: 1;
+  display: flex;
+  flex-direction: column;   /* stack children vertically */
+  align-items: center;      /* center them horizontally */
+  justify-content: flex-start; /* keep label at top, carousel follows */
+  gap: 1rem;                /* space between label and carousel */
+}
+
+.merch-scroll {
+  flex: 1;
+  display: flex;
+  flex-direction: column;   /* same stacking for consistency */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.carousel {
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 720px;
+}
+.viewport {
+  overflow: hidden;
+  padding-block: 1rem;
+}
+.track {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  will-change: transform;
+  transition: transform 0ms;
+}
+.card {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: clamp(220px, 35vw, 500px);
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255,255,255,.35);
+  transform-origin: center;
+  transition: opacity 260ms ease, transform 260ms ease, box-shadow 260ms ease;
+}
+.card a, .card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.card img { object-fit: cover; }
+
+.is-center { transform: scale(1);   box-shadow: 0 0 16px rgba(255,255,255,.55); z-index: 3; }
+.is-prev,
+.is-next  { transform: scale(.80); opacity: .9; z-index: 2; }
+
+.center-exit  { opacity: 0; transform: scale(.95); }
+.center-enter { opacity: 0; transform: scale(.95); }
+
+.carousel .nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 10;
+  border: none;
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 150ms ease, transform 150ms ease;
+  user-select: none;
+}
+.carousel .nav:hover { background: rgba(0,0,0,.55); transform: scale(1.05); }
+.carousel .prev { left: -10px; }
+.carousel .next { right: -10px; }
+
+@media (max-width: 800px) {
+  .carousel .prev { left: 4px; }
+  .carousel .next { right: 4px; }
+}
+
+
+@media (max-width: 800px) {
+  .prev { left: 4px; }
+  .next { right: 4px; }
+}
+
