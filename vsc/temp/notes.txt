@@ -1,0 +1,2 @@
+1. preload background images
+2. compress

@@ -28,14 +28,15 @@
 }
 
 .merch-scroll{
-  background: url("../assets/images/backgrounds/home.png") no-repeat center center;
+  background: url("../assets/images/backgrounds/home.webp") no-repeat center center;
   background-size: cover;
   min-height: 75vh;
-  padding-top: 10rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .music-scroll{
-    background: url("../assets/images/backgrounds/music.png") no-repeat center center;
+    background: url("../assets/images/backgrounds/music.webp") no-repeat center center;
     padding-bottom: 3rem;
     min-height: 25vh;
 }
