@@ -28,16 +28,19 @@ special-footer {
     flex-wrap: wrap;
     background: #FFF6E8;
     padding: 0.6rem 1rem 0.6rem 1rem;
+    position: relative;
 }
 .nav-button-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 0.75rem;
     width: 100%;
 }
 .nav-links-group {
     display: flex;
     gap: 1.6rem;
+    margin-left: 0.75rem;
 }
 .nav-button {
     display: inline-flex;
@@ -64,8 +67,9 @@ special-footer {
 
 .icon-button-row {
   display: flex;
-  gap: 1rem;        /* smaller than before */
+  gap: 1rem;
   position: relative;
+  margin-left: auto;
 }
 .icon-button {
     width: 40px;
@@ -95,4 +99,109 @@ footer {
 }
 .rights-text{
     color: black;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.menu-toggle img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.navbar { position: relative; }
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  z-index: 1000;
+  background: #FFF6E8;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 380ms ease, transform 380ms ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu[hidden] { display: flex !important; }
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.25rem 0 0.5rem 0;
+}
+.mobile-link {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  padding: 0.5rem 0.25rem;
+  font-size: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+
+  .menu-toggle {
+    grid-column: 3;
+    justify-self: end;
+    display: inline-flex;
+    margin-left: 0;
+  }
+  .nav-button-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  .nav-links-group {
+    display: none !important;
+  }
+  .icon-button-row {
+    display: none !important;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .logo-button {
+    justify-content: flex-start;
+    width: max-content;
+  }
+  .logo-button img {
+    height: 80px;
+    width: auto;
+  }
+  .mobile-menu .icon-button-row {
+    display: flex !important;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-menu .icon-button {
+    width: 2rem;
+    height: auto;
+  }
+  .label-headers {
+    font-size: 2rem !important;
+  }
 }

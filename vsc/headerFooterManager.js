@@ -4,10 +4,11 @@ class SpecialHeader extends HTMLElement{
             <header>
                 <nav class="navbar">
                     <div class="nav-button-row">
+                        <a href="index.html" class="nav-button logo-button">
+                            <img src="assets/images/tabs/siopaolo.png" alt = "SIOPAOLO">
+                        </a>
                         <div class="nav-links-group">
-                            <a href="index.html" class="nav-button logo-button">
-                                <img src="assets/images/tabs/siopaolo.png" alt = "SIOPAOLO">
-                            </a>
+
                             <a href="shows.html" class="nav-button">
                                 <img src="assets/images/tabs/shows.png" alt = "SHOWS">
                             </a>
@@ -36,6 +37,69 @@ class SpecialHeader extends HTMLElement{
                 </nav>
             </header>
         `
+        const navbar = this.querySelector('.navbar');
+        const row = navbar?.querySelector('.nav-button-row');
+
+        if (navbar && row) {
+        const toggle = document.createElement('button');
+        toggle.className = 'menu-toggle';
+        toggle.setAttribute('aria-label', 'Open menu');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-controls', 'mobile-menu');
+        toggle.innerHTML = `<img src="assets/images/tabs/waffle.png" alt="Menu">`;
+        row.appendChild(toggle);
+
+        const mobileMenu = document.createElement('div');
+        mobileMenu.id = 'mobile-menu';
+        mobileMenu.className = 'mobile-menu';
+        navbar.appendChild(mobileMenu);
+
+        const desktopTabs = Array.from(
+            this.querySelectorAll('.nav-links-group .nav-button')
+        ).filter(a => a.getAttribute('href'));
+
+        const tabsGroup = document.createElement('div');
+        tabsGroup.className = 'mobile-links';
+        desktopTabs.forEach(a => {
+            const href = a.getAttribute('href');
+            const label =
+            (a.querySelector('img')?.getAttribute('alt') || a.textContent || '')
+                .trim()
+                .replace(/\s+/g, ' ') || 'Link';
+            const m = document.createElement('a');
+            m.className = 'mobile-link';
+            m.href = href;
+            m.textContent = label;
+            tabsGroup.appendChild(m);
+        });
+        mobileMenu.appendChild(tabsGroup);
+
+        const socialsRow = this.querySelector('.icon-button-row');
+        if (socialsRow) {
+        const socialsCloneWrap = document.createElement('div');
+        socialsCloneWrap.className = 'mobile-socials';
+
+        socialsCloneWrap.appendChild(socialsRow.cloneNode(true));
+
+
+        mobileMenu.appendChild(socialsCloneWrap);
+        }
+
+        toggle.addEventListener('click', () => {
+        const willOpen = !mobileMenu.classList.contains('open');
+        mobileMenu.classList.toggle('open', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        });
+
+
+        mobileMenu.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (a) {
+            mobileMenu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+        });
+        }
     }
 }
 
