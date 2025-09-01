@@ -37,7 +37,8 @@
 
 .music-scroll{
     background: url("../assets/images/backgrounds/music.webp") no-repeat center center;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
     min-height: 25vh;
 }
 
@@ -245,4 +246,46 @@
   }
   .carousel-button.prev { left: 0.5rem !important; }
   .carousel-button.next { right: 0.5rem !important; }
+
+  .countdown-section {
+    font-size: 1rem !important;
+}
+}
+
+.countdown-section {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.countdown {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: baseline;
+  color: white;
+  background: black;
+  padding: 1rem;
+}
+
+.countdown .num {
+  font-size: clamp(1.5
+  rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  display: block;
+}
+
+.countdown .lab {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.countdown .unit {
+  min-width: 3.5ch;
+}
+
+.countdown-done {
+  margin-top: 0.75rem;
+  font-weight: 700;
 }

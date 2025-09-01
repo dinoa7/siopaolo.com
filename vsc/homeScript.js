@@ -75,3 +75,49 @@ document.querySelectorAll('.swap-img').forEach(img => {
   img.addEventListener('mouseenter', () => img.src = hover);
   img.addEventListener('mouseleave', () => img.src = original);
 });
+
+// --- Countdown: Sep 15, 00:00 America/Los_Angeles ---
+(function attachCountdown() {
+  const root = document.getElementById('launch-countdown');
+  if (!root) return;
+
+  const out = {
+    days:    root.querySelector('[data-unit="days"]'),
+    hours:   root.querySelector('[data-unit="hours"]'),
+    minutes: root.querySelector('[data-unit="minutes"]'),
+    seconds: root.querySelector('[data-unit="seconds"]'),
+  };
+  const done = document.getElementById('countdown-done');
+
+  // Los Angeles midnight on 2025-09-15 (PDT in September = UTC-7)
+  const target = new Date('2025-09-15T00:00:00-07:00');
+
+  const pad = n => String(n).padStart(2, '0');
+
+  function tick() {
+    const now = new Date();
+    let ms = target - now;
+
+    if (ms <= 0) {
+      out.days.textContent = out.hours.textContent =
+      out.minutes.textContent = out.seconds.textContent = '00';
+      if (done) done.hidden = false;
+      clearInterval(timer);
+      return;
+    }
+
+    const totalSec = Math.floor(ms / 1000);
+    const days = Math.floor(totalSec / 86400);
+    const hours = Math.floor((totalSec % 86400) / 3600);
+    const minutes = Math.floor((totalSec % 3600) / 60);
+    const seconds = totalSec % 60;
+
+    out.days.textContent = pad(days);
+    out.hours.textContent = pad(hours);
+    out.minutes.textContent = pad(minutes);
+    out.seconds.textContent = pad(seconds);
+  }
+
+  tick();
+  const timer = setInterval(tick, 1000);
+})();
