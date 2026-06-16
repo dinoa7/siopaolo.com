@@ -1,106 +1,214 @@
+:root {
+  --gap:  1rem;
+  --card: clamp(155px, 26vw, 295px);
+  --nav:  44px;
+  --section-pad: 5rem;
+}
+
 .scrolls {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
 }
 
-.label-headers{
-  margin: 1.5rem auto 0 auto;
-  padding: 0.75rem 1.5rem;
-  background: #000;
-  color: #fff;
-  font-size: 3rem;
-  border-radius: 0px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.music-scroll,
-.merch-scroll {
-  flex: 1;
+/* ─── RELEASE SECTION ─── */
+.release-section {
+  position: relative;
+  background: url("../assets/images/backgrounds/contact.webp") no-repeat center center / cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: var(--section-pad) 1.5rem;
+}
+
+.release-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.release-section > * { position: relative; }
+
+.release-inner {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.release-cover {
+  width: clamp(160px, 22vw, 240px);
+  flex-shrink: 0;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.release-info {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  color: #fff;
+}
+
+.release-title {
   margin: 0;
+  font-family: "DM Serif Text", serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 400;
 }
 
-.merch-scroll{
-  background: url("../assets/images/backgrounds/home.webp") no-repeat center center;
-  background-size: cover;
-  min-height: 75vh;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+.release-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
 }
 
-.music-scroll{
-    background: url("../assets/images/backgrounds/music.webp") no-repeat center center;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    min-height: 25vh;
+.release-link {
+  display: block;
+  opacity: 0.75;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.release-link:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.release-link img {
+  width: 34px;
+  height: 34px;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
+  transition: filter 0.2s ease;
+}
+
+.release-link:hover img {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
+}
+
+/* ─── Shared section label ─── */
+.label-headers {
+  font-size: clamp(1.6rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: #fff;
+  background: #0D0D0D;
+  padding: 0.55rem 2rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+}
+
+/* ─── MERCH SECTION ─── */
+.merch-scroll {
+  position: relative;
+  background: url("../assets/images/backgrounds/home.webp") no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: var(--section-pad) 1.5rem;
+}
+
+.merch-scroll::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.merch-scroll > * { position: relative; }
+
+/* ─── Merch grid ─── */
 .merch-grid {
   display: grid;
-  grid-template-columns: repeat(4, var(--card));
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  width: min(100%, 1100px);
 }
 
 .merch-item {
-  background: rgba(0,0,0,0.7);
-  border: 4px solid #000;
-  width: var(--card);
-  aspect-ratio: 1 / 1;
+  display: block;
+  aspect-ratio: 1;
   overflow: hidden;
-  border: 4px solid #000;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #111;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  position: relative;
 }
 
 .merch-item img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: transform 0.38s ease;
+}
+.merch-item:hover img { transform: scale(1.07); }
+
+/* ─── Show More ─── */
+.view-all {
+  display: inline-block;
+  padding: 0.7rem 2.75rem;
+  background: #0D0D0D;
+  color: #fff;
+  font-family: "DM Serif Text", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.view-all:hover {
+  background: #fff;
+  color: #0D0D0D;
+  transform: translateY(-2px);
 }
 
-.merch-item:hover img {
-  transform: scale(1.1);
+/* ─── MUSIC SECTION ─── */
+.music-scroll {
+  position: relative;
+  background: url("../assets/images/backgrounds/music.webp") no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: var(--section-pad) 1.5rem;
 }
 
-.img-hover {
+.music-scroll::before {
+  content: '';
   position: absolute;
   inset: 0;
-  opacity: 0;
-}
-.merch-item:hover .img-hover {
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.22);
+  pointer-events: none;
 }
 
-:root{
-  --gap: 0.75rem;
-  --card: clamp(180px, 32vw, 320px);
-  --nav: 48px;
+.music-scroll > * { position: relative; }
+
+/* ─── Carousel ─── */
+.carousel-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-
-.carousel{
+.carousel {
   position: relative;
   width: 100%;
   max-width: calc(3 * var(--card) + 2 * var(--gap));
-  margin: 0 auto;
 }
 
 .carousel-button {
@@ -111,54 +219,45 @@
   height: var(--nav);
   border: none;
   border-radius: 50%;
-  background: #1a1a1a;
-  opacity: 0.7;
-  color: #fff;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: transform 200ms ease, opacity 200ms ease; /* add smooth transition */
-  z-index: 500;
+  opacity: 0.75;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  z-index: 10;
 }
-
 .carousel-button:hover {
-  transform: translateY(-50%) scale(1.1);
   opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(0, 0, 0, 0.95);
 }
+.carousel-button.prev { left: -58px; }
+.carousel-button.next { right: -58px; }
+.carousel-button img { width: 15px; height: auto; }
 
-.carousel-button.prev{ left: -56px; }
-.carousel-button.next{ right: -56px; }
-.carousel-button img{ width: 18px; height: auto; }
-.viewport{
+.viewport {
   overflow: hidden;
-  padding-block: 1rem;
   width: 100%;
+  padding-block: 0.5rem;
 }
 
-.track{
+.track {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   gap: var(--gap);
-  align-items: center;
-  justify-content: flex-start;
-  transition: transform 420ms ease;
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.slide{
-  flex: 0 0 auto;
-  width: var(--card);
-  aspect-ratio: 1 / 1;
-  border: 4px solid #000;
+.slide {
+  flex: 0 0 var(--card);
+  aspect-ratio: 1;
   overflow: hidden;
-}
-
-.slide img{
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background: #111;
+  cursor: pointer;
 }
 
 .slide .nav-button {
@@ -167,125 +266,48 @@
   height: 100%;
   padding: 0;
   border: 0;
-}
-
-.slide .nav-button img,
-.slide .nav-button:hover img,
-.slide .nav-button:focus img {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-  object-position: center;
-}
-
-.view-all {
-  margin: 1.5rem auto 0 auto;
-  padding: 0.75rem 1.5rem;
-  background: #000;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 0px;
   text-decoration: none;
-  text-align: center;
-  display: inline-block;
-  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.view-all:hover {
-  background: #222;
-  transform: scale(1.05);
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
 }
+.slide:hover img { transform: scale(1.05); }
 
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
-  .label-headers {
-    font-size: 2rem !important;
+  :root {
+    --card: min(72vw, 285px);
+    --section-pad: 4rem;
   }
-  .merch-scroll{
-    padding-top: 4rem;
-    padding-bottom: 6rem;
+
+  .release-inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
+
+  .release-cover {
+    width: 100%;
+    max-height: 260px;
+    object-position: center 20%;
+  }
+
+  .release-info {
+    padding: 1.25rem 1.5rem;
+  }
+
   .merch-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    max-width: min(88vw, 520px);
-    margin: 0 auto;
-  }
-  .merch-item {
-    width: auto;
-    border: 3px solid #000;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: min(88vw, 440px);
+    gap: 0.5rem;
   }
 
-  html, body { overflow-x: hidden; }
-
-  .carousel {
-    width: 100% !important;
-    max-width: 100vw !important;
-    margin: 0 auto !important;
-    overflow-x: hidden !important;
-  }
-  .carousel .viewport {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: stretch !important;
-    overflow: hidden !important;
-    padding-inline: 0 !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .carousel .track {
-    display: flex !important;
-    width: max-content !important;
-    gap: var(--gap) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .carousel .slide {
-    flex: 0 0 var(--card) !important;
-  }
-  .carousel-button.prev { left: 0.5rem !important; }
-  .carousel-button.next { right: 0.5rem !important; }
-
-  .countdown-section {
-    font-size: 1rem !important;
-}
-}
-
-.countdown-section {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.countdown {
-  display: flex;
-  gap: 1.25rem;
-  justify-content: center;
-  align-items: baseline;
-  color: white;
-  background: black;
-  padding: 1rem;
-}
-
-.countdown .num {
-  font-size: clamp(1.5
-  rem, 6vw, 3rem);
-  font-weight: 700;
-  line-height: 1;
-  display: block;
-}
-
-.countdown .lab {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-}
-
-.countdown .unit {
-  min-width: 3.5ch;
-}
-
-.countdown-done {
-  margin-top: 0.75rem;
-  font-weight: 700;
+  .carousel { max-width: 100%; }
+  .carousel-button.prev { left: 0.25rem; }
+  .carousel-button.next { right: 0.25rem; }
 }

@@ -107,7 +107,7 @@ class SpecialFooter extends HTMLElement {
     connectedCallback(){
         this.innerHTML = `
             <footer>
-                <div class="rights-text">&copy; 2025 siopaolo. All rights reserved.</div>
+                <span class="rights-text">&copy; 2025 siopaolo. All rights reserved.</span>
             </footer>
         `
     }
