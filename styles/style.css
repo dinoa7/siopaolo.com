@@ -47,7 +47,7 @@ header {
   height: 72px;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 0.75rem;
 }
 
 /* Logo */
@@ -175,7 +175,7 @@ footer {
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .nav-button-row {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     height: 62px;
   }
   .logo-button img { height: 50px; }
